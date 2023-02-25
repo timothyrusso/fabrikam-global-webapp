@@ -15,7 +15,6 @@ function model(sequelize) {
     city: { type: DataTypes.STRING, allowNull: false },
     province: { type: DataTypes.STRING, allowNull: false },
     userId: { type: DataTypes.SMALLINT, allowNull: false },
-    creationDate: { type: DataTypes.DATEONLY, allowNull: false },
   };
 
   return sequelize.define('User', attributes);
