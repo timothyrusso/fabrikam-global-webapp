@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/1c7d3d47-f16f-46b3-8d83-3fa207f38e9f/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/fabrikam-global-webapp",
+    "appService.deploySubpath": "."
+}
