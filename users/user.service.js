@@ -2,6 +2,7 @@ const db = require('../helpers/db');
 
 module.exports = {
   getAll,
+  getById,
   create,
   update,
   delete: _delete,
@@ -9,6 +10,10 @@ module.exports = {
 
 async function getAll() {
   return await db.User.findAll();
+}
+
+async function getById(id) {
+  return await getUser(id);
 }
 
 async function create(params) {
@@ -43,4 +48,10 @@ async function update(id, params) {
 async function _delete(id) {
   const user = await getUser(id);
   await user.destroy();
+}
+
+async function getUser(id) {
+  const user = await db.User.findByPk(id);
+  if (!user) throw 'User not found';
+  return user;
 }

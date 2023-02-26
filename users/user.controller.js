@@ -9,6 +9,7 @@ const userService = require('./user.service');
 // routes
 
 router.get('/', getAll);
+router.get('/:id', getById);
 router.post('/', createSchema, create);
 router.put('/:id', updateSchema, update);
 router.delete('/:id', _delete);
@@ -21,6 +22,13 @@ function getAll(req, res, next) {
   userService
     .getAll()
     .then((users) => res.json(users))
+    .catch(next);
+}
+
+function getById(req, res, next) {
+  userService
+    .getById(req.params.id)
+    .then((user) => res.json(user))
     .catch(next);
 }
 
