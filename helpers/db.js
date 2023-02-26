@@ -1,7 +1,7 @@
 const tedious = require('tedious');
 const { Sequelize } = require('sequelize');
 
-const config = require('config.js');
+const config = require('../config.js');
 const { dbName, dbConfig } = config;
 
 module.exports = db = {};
