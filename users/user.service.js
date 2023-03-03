@@ -2,6 +2,7 @@ const db = require('../helpers/db');
 
 module.exports = {
   getAll,
+  getMainFields,
   getById,
   create,
   update,
@@ -12,26 +13,32 @@ async function getAll() {
   return await db.User.findAll();
 }
 
+async function getMainFields() {
+  return await db.User.findAll({
+    attributes: ['firstName', 'lastName', 'userId', 'company']
+  });
+}
+
 async function getById(id) {
   return await getUser(id);
 }
 
 async function create(params) {
-  // validate
+  // Validate if the users is already created
   if (await db.User.findOne({ where: { userId: params.userId } })) {
     throw 'User Id "' + params.userId + '" is already created';
   }
 
   const user = new db.User(params);
 
-  // save user
+  // Save user
   await user.save();
 }
 
 async function update(id, params) {
   const user = await getUser(id);
 
-  // validate
+  // Validation for the update method to check if the userId field is not already in use by another user when the current user is being updated
   const userIdChanged = params.userId && user.userId !== params.userId;
   if (
     userIdChanged &&
@@ -40,7 +47,7 @@ async function update(id, params) {
     throw 'User Id "' + params.userId + '" is already created';
   }
 
-  // copy params to user and save
+  // Copy params to user and save
   Object.assign(user, params);
   await user.save();
 }

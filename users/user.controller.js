@@ -6,9 +6,10 @@ const validateRequest = require('../middleware/validate-request');
 const Company = require('../helpers/company');
 const userService = require('./user.service');
 
-// routes
+// Routes
 
 router.get('/', getAll);
+router.get('/main', getMain);
 router.get('/:id', getById);
 router.post('/', createSchema, create);
 router.put('/:id', updateSchema, update);
@@ -16,11 +17,18 @@ router.delete('/:id', _delete);
 
 module.exports = router;
 
-// route functions
+// Route functions
 
 function getAll(req, res, next) {
   userService
     .getAll()
+    .then((users) => res.json(users))
+    .catch(next);
+}
+
+function getMain(req, res, next) {
+  userService
+    .getMainFields()
     .then((users) => res.json(users))
     .catch(next);
 }
@@ -53,7 +61,7 @@ function _delete(req, res, next) {
     .catch(next);
 }
 
-// schema functions
+// Schema functions to check the incoming requests
 
 function createSchema(req, res, next) {
   const schema = Joi.object({
@@ -69,7 +77,7 @@ function createSchema(req, res, next) {
     addressTwo: Joi.string().required(),
     city: Joi.string().required(),
     province: Joi.string().required(),
-    userId: Joi.number().required(),
+    userId: Joi.number().max(99999).required(),
   });
   validateRequest(req, next, schema);
 }
@@ -88,7 +96,7 @@ function updateSchema(req, res, next) {
     addressTwo: Joi.string().required(),
     city: Joi.string().required(),
     province: Joi.string().required(),
-    userId: Joi.number().required(),
+    userId: Joi.number().max(99999).required(),
   });
   validateRequest(req, next, schema);
 }

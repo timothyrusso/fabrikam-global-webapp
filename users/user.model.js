@@ -14,7 +14,7 @@ function model(sequelize) {
     addressTwo: { type: DataTypes.STRING, allowNull: false },
     city: { type: DataTypes.STRING, allowNull: false },
     province: { type: DataTypes.STRING, allowNull: false },
-    userId: { type: DataTypes.SMALLINT, allowNull: false },
+    userId: { type: DataTypes.INTEGER, allowNull: false },
   };
 
   return sequelize.define('User', attributes);
