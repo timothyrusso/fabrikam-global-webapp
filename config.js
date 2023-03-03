@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
-  dbName: 'fabrikam',
+  dbName: 'fabrikam-production',
   dbConfig: {
     server: 'fabrikam-server.database.windows.net',
     options: {
