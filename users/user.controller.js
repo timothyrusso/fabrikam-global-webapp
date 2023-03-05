@@ -72,11 +72,11 @@ function createSchema(req, res, next) {
       .valid(Company.Fabrikam, Company.FabrikStore, Company.FabrikDistribution)
       .empty(''),
     startDate: Joi.date().required(),
-    endDate: Joi.date().allow(null),
-    addressOne: Joi.string().allow(null),
-    addressTwo: Joi.string().allow(null),
-    city: Joi.string().allow(null),
-    province: Joi.string().allow(null),
+    endDate: Joi.date().allow(null).default(null),
+    addressOne: Joi.string().allow(null).default(null),
+    addressTwo: Joi.string().allow(null).default(null),
+    city: Joi.string().allow(null).default(null),
+    province: Joi.string().allow(null).default(null),
     userId: Joi.number().max(99999).required(),
   });
   validateRequest(req, next, schema);
@@ -91,11 +91,11 @@ function updateSchema(req, res, next) {
       .valid(Company.Fabrikam, Company.FabrikStore, Company.FabrikDistribution)
       .empty(''),
     startDate: Joi.date().required(),
-    endDate: Joi.date().allow(null),
-    addressOne: Joi.string().allow(null),
-    addressTwo: Joi.string().allow(null),
-    city: Joi.string().allow(null),
-    province: Joi.string().allow(null),
+    endDate: Joi.date().allow(null).default(null),
+    addressOne: Joi.string().allow(null).default(null),
+    addressTwo: Joi.string().allow(null).default(null),
+    city: Joi.string().allow(null).default(null),
+    province: Joi.string().allow(null).default(null),
     userId: Joi.number().max(99999).required(),
   });
   validateRequest(req, next, schema);

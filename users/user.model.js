@@ -9,11 +9,11 @@ function model(sequelize) {
     birthDay: { type: DataTypes.DATEONLY, allowNull: false },
     company: { type: DataTypes.STRING, allowNull: false },
     startDate: { type: DataTypes.DATEONLY, allowNull: false },
-    endDate: { type: DataTypes.DATEONLY, allowNull: true, defaultValue: null },
-    addressOne: { type: DataTypes.STRING, allowNull: true, defaultValue: null },
-    addressTwo: { type: DataTypes.STRING, allowNull: true, defaultValue: null },
-    city: { type: DataTypes.STRING, allowNull: true, defaultValue: null },
-    province: { type: DataTypes.STRING, allowNull: true, defaultValue: null },
+    endDate: { type: DataTypes.DATEONLY, allowNull: true },
+    addressOne: { type: DataTypes.STRING, allowNull: true },
+    addressTwo: { type: DataTypes.STRING, allowNull: true },
+    city: { type: DataTypes.STRING, allowNull: true },
+    province: { type: DataTypes.STRING, allowNull: true },
     userId: { type: DataTypes.INTEGER, allowNull: false },
   };
 
