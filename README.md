@@ -1,6 +1,7 @@
 # fabrikam-global-webapp
 
 This is a Node js web application that run a server which can handle requests to a Microsoft SQL database.
+The database contain informations about the employees of the Fabrikam Global company.
 
 ## How to run it locally
 
@@ -12,12 +13,12 @@ This is a Node js web application that run a server which can handle requests to
 
 ## Endpoints
 
-- Get all the informations of all the users `GET` `/`
-- Get all the main informations of all the users `GET` `/main`
-- Get all the informations of a user `GET` `/:id`
-- Create a new user with a payload `POST` `/`
-- Update an existing user with a payload `PUT` `/:id`
-- Delete an existing user `DELETE` `/:id`
+- Get all the informations of all the entities `GET` `/`
+- Get all the main informations of all the entities `GET` `/main`
+- Get all the informations of a entity `GET` `/:id`
+- Create a new entity with a payload `POST` `/`
+- Update an existing entity with a payload `PUT` `/:id`
+- Delete an existing entity `DELETE` `/:id`
 
 ## Dependencies
 

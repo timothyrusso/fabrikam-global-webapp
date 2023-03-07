@@ -13,10 +13,14 @@ async function initialize() {
   const host = dbConfig.server;
   const { userName, password } = dbConfig.authentication.options;
 
-  // create db if it doesn't already exist
+  /**
+   * Create db if it doesn't already exist
+   */
   await ensureDbExists(dbName);
 
-  // connect to db
+  /**
+   * Connect to the db
+   */
   const sequelize = new Sequelize(dbName, userName, password, {
     host,
     dialect,
