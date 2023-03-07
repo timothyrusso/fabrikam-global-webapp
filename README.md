@@ -22,27 +22,27 @@ The database contain informations about the employees of the Fabrikam Global com
 
 ## Dependencies
 
-### express
+### [express](https://expressjs.com/)
 
 Necessary to handle HTTP requests, define the routes for the application, and send HTTP responses to clients.
 
-### dotenv
+### [dotenv](https://github.com/motdotla/dotenv)
 
 To manage environment variables.
 
-### sequelize
+### [sequelize](https://sequelize.org/)
 
 It is used to define models for the database tables, which helps in creating, updating, and querying the database using JavaScript code. It provides features such as validation, data type casting, and associations between tables.
 
-### tedious
+### [tedious](https://tediousjs.github.io/tedious/index.html)
 
 JavaScript implementation of the TDS (Tabular Data Stream) protocol, which is used by Microsoft SQL Server to communicate with client applications. Here, Tedious is used as the database driver to connect to and interact with the SQL Server database using Node.js.
 
-### joi
+### [joi](https://joi.dev/)
 
 Necessary to validate the data that is sent to the server through HTTP requests. It ensures that the data is in the expected format and structure, which helps to prevent errors and improve the overall quality of the data.
 
-### cors
+### [cors](https://github.com/expressjs/cors)
 
 It enable Cross-Origin Resource Sharing (CORS) in the application. CORS is a security feature implemented in web browsers to prevent client-side JavaScript code from making requests to a different domain than the one that served the web page.
 

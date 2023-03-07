@@ -24,21 +24,29 @@ async function getById(id) {
 }
 
 async function create(params) {
-  // Validate if the users is already created
+  
+  /**
+   * Check if the users is already created
+   */
   if (await db.User.findOne({ where: { userId: params.userId } })) {
     throw 'User Id "' + params.userId + '" is already created';
   }
 
   const user = new db.User(params);
 
-  // Save user
+  /**
+   * Save the created user.
+   * save() method is a Sequelize instance method that saves or updates a record to the database.
+   */
   await user.save();
 }
 
 async function update(id, params) {
   const user = await getUser(id);
 
-  // Validation for the update method to check if the userId field is not already in use by another user when the current user is being updated
+  /**
+   * Validation for the update method to check if the userId field is not already in use by another user when the current user is being updated
+   */
   const userIdChanged = params.userId && user.userId !== params.userId;
   if (
     userIdChanged &&
@@ -47,7 +55,9 @@ async function update(id, params) {
     throw 'User Id "' + params.userId + '" is already created';
   }
 
-  // Copy params to user and save
+  /**
+   * Copy params to user and save
+   */
   Object.assign(user, params);
   await user.save();
 }

@@ -6,6 +6,11 @@ const { dbName, dbConfig } = config;
 
 module.exports = db = {};
 
+/**
+ * Setting up the database connection.
+ * It is called before its definition because the module.exports statement is 
+ * executed immediately as soon as the module is loaded, which in turn invokes the initialize() function
+ */
 initialize();
 
 async function initialize() {
@@ -26,10 +31,14 @@ async function initialize() {
     dialect,
   });
 
-  // init models and add them to the exported db object
+  /**
+   * Init models and add them to the exported db object
+   */
   db.User = require('../users/user.model')(sequelize);
 
-  // sync all models with database
+  /**
+   * Sync all models with database
+   */
   await sequelize.sync({ alter: true });
 }
 
@@ -42,6 +51,9 @@ async function ensureDbExists(dbName) {
         reject(`Connection Failed: ${err.message}`);
       }
 
+      /**
+       * Send a T-SQL query to create the database if it does not already exist
+       */
       const createDbQuery = `IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = '${dbName}') CREATE DATABASE [${dbName}];`;
       const request = new tedious.Request(createDbQuery, (err) => {
         if (err) {
@@ -49,10 +61,16 @@ async function ensureDbExists(dbName) {
           reject(`Create DB Query Failed: ${err.message}`);
         }
 
-        // query executed successfully
+        /**
+         * Query executed successfully
+         */
         resolve();
       });
 
+      /**
+       * Method call that executes an SQL query using the request object and the connection object. 
+       * The execSql method sends the query to the database server and retrieves the results.
+       */
       connection.execSql(request);
     });
   });

@@ -6,8 +6,9 @@ const validateRequest = require('../middleware/validate-request');
 const Company = require('../helpers/company');
 const userService = require('./user.service');
 
-// Routes
-
+/**
+ * Routes
+ */
 router.get('/', getAll);
 router.get('/main', getMain);
 router.get('/:id', getById);
@@ -17,7 +18,9 @@ router.delete('/:id', _delete);
 
 module.exports = router;
 
-// Route functions
+/**
+ * Route functions
+ */
 
 function getAll(req, res, next) {
   userService
@@ -61,7 +64,9 @@ function _delete(req, res, next) {
     .catch(next);
 }
 
-// Schema functions to check the incoming requests
+/**
+ * Schema functions to check the incoming requests
+ */
 
 function createSchema(req, res, next) {
   const schema = Joi.object({
