@@ -15,7 +15,8 @@ async function getAll() {
 
 async function getMainFields() {
   return await db.User.findAll({
-    attributes: ['firstName', 'lastName', 'userId', 'company']
+    attributes: ['firstName', 'lastName', 'userId', 'company'],
+    where: { endDate: null }
   });
 }
 
