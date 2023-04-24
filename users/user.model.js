@@ -17,5 +17,12 @@ function model(sequelize) {
     userId: { type: DataTypes.INTEGER, allowNull: false },
   };
 
-  return sequelize.define('User', attributes);
+  const options = {
+    sequelize,
+    modelName: 'User',
+    timestamps: false,
+    tableName: 'users',
+  };
+
+  return sequelize.define('User', attributes, options);
 }
