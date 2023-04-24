@@ -1,6 +1,6 @@
 # fabrikam-global-webapp
 
-This is a Node js web application that run a server which can handle requests to a Microsoft SQL database.
+This is a Node js web application that run a server which can handle requests to a PostgreSQL database.
 The database contain informations about the employees of the Fabrikam Global company.
 
 ## How to run it locally
@@ -34,10 +34,6 @@ To manage environment variables.
 
 It is used to define models for the database tables, which helps in creating, updating, and querying the database using JavaScript code. It provides features such as validation, data type casting, and associations between tables.
 
-### [tedious](https://tediousjs.github.io/tedious/index.html)
-
-JavaScript implementation of the TDS (Tabular Data Stream) protocol, which is used by Microsoft SQL Server to communicate with client applications. Here, Tedious is used as the database driver to connect to and interact with the SQL Server database using Node.js.
-
 ### [joi](https://joi.dev/)
 
 Necessary to validate the data that is sent to the server through HTTP requests. It ensures that the data is in the expected format and structure, which helps to prevent errors and improve the overall quality of the data.
@@ -46,10 +42,14 @@ Necessary to validate the data that is sent to the server through HTTP requests.
 
 It enable Cross-Origin Resource Sharing (CORS) in the application. CORS is a security feature implemented in web browsers to prevent client-side JavaScript code from making requests to a different domain than the one that served the web page.
 
+### [pg](https://github.com/brianc/node-postgres)
+The pg package is a PostgreSQL client for Node.js that allows the application to connect and interact with the PostgreSQL database.
+
+### [pg-hstore](https://github.com/scarney81/pg-hstore)
+The pg-hstore package is a Node.js module that allows the application to work with PostgreSQL's hstore data type. It provides a way to serialize and deserialize JavaScript objects to and from hstore format.
+
 ## Database and server
 
-The database of this application is hosted in the [Azure Cloud Service](https://azure.microsoft.com/it-it)
-
-The database is in the Azure Cloud server at this endpoint: `fabrikam-server.database.windows.net`
+The database of this application is hosted in [render.com](https://render.com/)
 
 This web application is hosted by [render.com](https://render.com/), at this endpoint: [https://fabrikam-global-webapp.onrender.com](https://fabrikam-global-webapp.onrender.com/)
