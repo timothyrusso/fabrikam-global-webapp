@@ -7,8 +7,7 @@ The database contain informations about the employees of the Fabrikam Global com
 
 - Clone the repository
 - Install the dependencies `npm install`
-- Set the environments variables `DB_USERNAME` and `DB_PASSWORD`
-- Set your database name and your database server in the `config.js` file
+- Set the environments variables `DB_USERNAME`, `DB_PASSWORD`, `DB_NAME`, `DB_HOST` and `DB_PORT`
 - Run the server `npm run start`
 
 ## Endpoints
