@@ -15,6 +15,7 @@ function model(sequelize) {
     city: { type: DataTypes.STRING, allowNull: true },
     province: { type: DataTypes.STRING, allowNull: true },
     userId: { type: DataTypes.INTEGER, allowNull: false },
+    createdAt: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
   };
 
   const options = {
