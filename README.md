@@ -49,6 +49,6 @@ The pg-hstore package is a Node.js module that allows the application to work wi
 
 ## Database and server
 
-The database of this application is hosted in [render.com](https://render.com/)
+The database of this application is hosted in [elephantsql.com](https://elephantsql.com/)
 
 This web application is hosted by [render.com](https://render.com/), at this endpoint: [https://fabrikam-global-webapp.onrender.com](https://fabrikam-global-webapp.onrender.com/)
